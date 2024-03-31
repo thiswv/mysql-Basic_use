@@ -474,7 +474,7 @@ select booksName
 
 ##### 7.1.6 匹配字符类
 
-![字符类](D:\biji\mysql\mysql必知必会\字符类.bmp)
+![字符类](D:\biji\mysql\mysql必知必会\images\字符类.bmp)
 
 
 
@@ -624,5 +624,128 @@ soundex是发音比较，不是字母比较
 
 ##### 9.2.2 日期和时间处理函数
 
-![常用日期函数](D:\biji\mysql\mysql必知必会\常用日期函数.bmp)
+![常用日期函数](D:\biji\mysql\mysql必知必会\images\常用日期函数.bmp)
 
+日期在使用时，总是应该使用4位数字的年份
+
+在写代码时，如果只想找日期，只是用DATE()函数
+
+DATE(date) 进提取日期部分，后面的时：分：秒不会干扰选择
+
+
+
+如果你想检索出时间段的，用BETWEEN ...  AND ...
+
+```mysql
+where Date(order_date) BETWEEN '2005-09-01' AND '2005-09-30';
+```
+
+也可以用别的
+
+```mysql
+where Year(order_date) = 2005 AND Month(order_date) = 9;
+```
+
+
+
+##### 9.2.3 数值处理函数
+
+![数值处理函数](D:\biji\mysql\mysql必知必会\images\数值处理函数.bmp)
+
+
+
+### 第10章 汇总数据
+
+聚集函数 运行在行组上，计算和返回单个值的函数
+
+| 函数  | 说明             |
+| ----- | ---------------- |
+| AVG   | 返回某列的平均值 |
+| COUNT | 返回某列的行数   |
+| MAX   | 返回某列的最大值 |
+| MIN   | 返回某列的最小值 |
+| SUM   | 返回某列值的和   |
+
+
+
+#### 10.1 函数
+
+##### 10.1.1  AVG() 函数
+
+返回某列的平均价格，也可以用where做限制条件
+
+```mysql
+select AVG(booksPrice) as prices
+    -> from books;
+    
+select AVG(booksPrice) as prices
+    -> from books
+    -> where booksTypeId = 1;
+```
+
+AVG只能用于单列，且自动忽略NULL行。
+
+
+
+##### 10.1.2 COUNT()函数
+
+确定表中行的数目或符合特定条件的行的数目
+
+1. count(*) 对表中行的数目进行计数，不管是否为NULL
+2. count(column)对特定列中的具有值得行进行技术，忽略NULL值
+
+
+
+```mysql
+select count(*) as counts
+    -> from books;
+    
+select count(booksId) as counts
+    -> from books;
+```
+
+
+
+##### 10.1.3 MAX函数
+
+返回最大值，忽略NULL。
+
+返回任意列得最大值，包括文本。
+
+
+
+```mysql
+select MAX(booksPrice) as price
+    -> from books;
+```
+
+
+
+##### 10.1.4 MIN函数
+
+和max一模一样，除了功能。
+
+
+
+##### 10.1.5 SUM函数
+
+返回列的总和。
+
+忽略NULL，可以在多列计算。
+
+```mysql
+select sum(nums * prices) as prices;
+```
+
+
+
+#### 10.2 组合聚集
+
+```mysql
+ select max(booksPrice),
+    -> min(booksPrice)
+    -> from books
+    -> ;
+```
+
+不取别名表中默认显示 函数名（列明）
