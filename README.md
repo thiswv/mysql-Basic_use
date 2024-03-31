@@ -474,7 +474,7 @@ select booksName
 
 ##### 7.1.6 匹配字符类
 
-![字符类](D:\biji\mysql\mysql必知必会\images\字符类.bmp)
+![字符类](https://raw.githubusercontent.com/thiswv/mysql-Basic_use/main/images/%E5%AD%97%E7%AC%A6%E7%B1%BB.bmp)
 
 
 
@@ -624,7 +624,7 @@ soundex是发音比较，不是字母比较
 
 ##### 9.2.2 日期和时间处理函数
 
-![常用日期函数](D:\biji\mysql\mysql必知必会\images\常用日期函数.bmp)
+![常用日期函数](https://raw.githubusercontent.com/thiswv/mysql-Basic_use/main/images/%E5%B8%B8%E7%94%A8%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0.bmp)
 
 日期在使用时，总是应该使用4位数字的年份
 
@@ -650,7 +650,7 @@ where Year(order_date) = 2005 AND Month(order_date) = 9;
 
 ##### 9.2.3 数值处理函数
 
-![数值处理函数](D:\biji\mysql\mysql必知必会\images\数值处理函数.bmp)
+![数值处理函数](https://raw.githubusercontent.com/thiswv/mysql-Basic_use/main/images/%E6%95%B0%E5%80%BC%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0.bmp)
 
 
 
